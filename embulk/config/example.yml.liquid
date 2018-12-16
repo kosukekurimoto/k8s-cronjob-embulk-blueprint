@@ -1,0 +1,16 @@
+exec: {}
+in:
+    type: randomj
+    rows: 16
+    threads: 1
+    primary_key: myid
+    schema:
+      - {name: myid,     type: long}
+      - {name: named,    type: string}
+      - {name: flag,     type: boolean}
+      - {name: pit_rate, type: double}
+      - {name: score,    type: long}
+      - {name: time,     type: timestamp, format: '%Y-%m-%d %H:%M:%S'}
+      - {name: purchase, type: timestamp, format: '%Y/%m/%d'}
+out: {type: stdout}
+

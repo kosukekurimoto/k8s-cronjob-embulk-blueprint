@@ -1,0 +1,23 @@
+# 2018/12/16 Kosuke.Kurimoto
+# [参考]
+# CronJob: https://cloud.google.com/kubernetes-engine/docs/how-to/cronjobs?hl=ja
+# ジョブの実行: https://cloud.google.com/kubernetes-engine/docs/how-to/jobs?hl=ja
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: cronjob-embulk-example
+spec:
+  schedule: "15 * * * *"
+  startingDeadlineSeconds: 100
+  jobTemplate:
+    spec:
+      backoffLimit: 2
+      activeDeadlineSeconds: 50
+      template:
+        spec:
+          containers:
+          - name: containers-name
+            image: gcr.io/[PROJECT_ID]/k8s-cronjob-embulk:v1
+            args: ["config/example.yml.liquid"]
+          # Do not restart containers after they exit
+          restartPolicy: Never
