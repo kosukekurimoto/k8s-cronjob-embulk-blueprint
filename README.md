@@ -1,5 +1,5 @@
 # k8s-cronjob-embulk-blueprint
-Embulkのバッチ処理をGoogle Cloud PlatformのKubernetes Engineに構築する為の雛形です。  
+Embulkのバッチ処理をGoogle Cloud Platform(GCP)のKubernetes Engine(k8s)に構築する為の雛形です。  
 Kubernetesの[CronJob](https://cloud.google.com/kubernetes-engine/docs/how-to/cronjobs)を使って定期的に実行する事を想定しています。
 
 ## 事前準備
@@ -12,7 +12,7 @@ $ gcloud components install kubectl
 ```
 3. gcloud コマンドライン ツールのデフォルトプロジェクト、ゾーンをセット  
 ```
-$ gcloud config set project [PROJECT_ID]
+$ gcloud config set project [GCP_PROJECT_ID]
 $ gcloud config set compute/zone asia-northeast1-a
 ```
 
@@ -42,12 +42,12 @@ $ cd k8s-cronjob-embulk-blueprint
 ```
 2. cronjob-embulk-example.yamlの修正
 ```
-image: gcr.io/[PROJECT_ID]/k8s-cronjob-embulk:v1 # PROJECT_IDを修正
+image: gcr.io/[GCP_PROJECT_ID]/k8s-cronjob-embulk:v1 # GCP_PROJECT_IDを修正
 ```
 
 3. コンテナイメージの作成  
 ```
-$ docker build -t gcr.io/[PROJECT_ID]/k8s-cronjob-embulk:v1 .
+$ docker build -t gcr.io/[GCP_PROJECT_ID]/k8s-cronjob-embulk:v1 .
 ```
 ```
 # 作成したイメージを確認
@@ -57,7 +57,7 @@ gcr.io/my-project/hello-app    v1                  25cfadb1bf28        10 second
 ```
 4. [Container Registry](https://cloud.google.com/container-registry/?hl=ja) にコンテナイメージをプッシュ
 ```
-$ gcloud docker -- push gcr.io/[PROJECT_ID]/k8s-cronjob-embulk:v1
+$ gcloud docker -- push gcr.io/[GCP_PROJECT_ID]/k8s-cronjob-embulk:v1
 ```
 
 ## Deploy
