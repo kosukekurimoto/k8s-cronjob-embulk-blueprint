@@ -37,8 +37,8 @@ gcloud container clusters get-credentials [クラスタ名]
 
 1. このリポジトリをダウンロード  
 ```
-$ git clone https://github.com/GoogleCloudPlatform/kubernetes-engine-samples  
-$ cd kubernetes-engine-samples/hello-app
+$ git clone https://github.com/kosukekurimoto/k8s-cronjob-embulk-blueprint.git
+$ cd k8s-cronjob-embulk-blueprint
 ```
 2. cronjob-embulk-example.yamlの修正
 ```
