@@ -1,6 +1,6 @@
 # k8s-cronjob-embulk-blueprint
 Embulkのバッチ処理をGoogle Cloud PlatformのKubernetes Engineに構築する為の雛形です。  
-CronJobを使って定期的に実行する事を想定しています。
+Kubernetesの[CronJob](https://cloud.google.com/kubernetes-engine/docs/how-to/cronjobs)を使って定期的に実行する事を想定しています。
 
 ## 事前準備
 ### gcloud、kubectl コマンドラインツールのインストール
