@@ -17,7 +17,7 @@ spec:
         spec:
           containers:
           - name: containers-name
-            image: gcr.io/[PROJECT_ID]/k8s-cronjob-embulk:v1
+            image: gcr.io/[GCP_PROJECT_ID]/k8s-cronjob-embulk:v1
             args: ["config/example.yml.liquid"]
           # Do not restart containers after they exit
           restartPolicy: Never
